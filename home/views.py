@@ -15,4 +15,11 @@ from django.http import HttpResponse
 #     return HttpResponse("<h1> THIS IS SUCCESS PAGE <h1>")
 
 def home(request):
-    return render(request,'index.html')
+
+    peoples=[
+        {'name':'rohit sharma','age':24},
+        {'name':'dev patel','age':15},
+        {'name':'jay doshi','age':30}
+    ]
+    
+    return render(request,'index.html',context={'peoples':peoples})

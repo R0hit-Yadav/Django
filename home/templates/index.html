@@ -5,7 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    table,th,td{
+        border: 1px solid brown;
+    }
+</style>
 <body>
     <h1>This is index.html file</h1>
+    <h4 style="color: red;">Change Color</h4>
+
+    <!-- fatch data from backend -->
+    {{peoples}}
+    <br>
+    <table>
+        <tr>
+          <th>No.</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Can Vote?</th>
+        </tr>
+
+        {% for peoples in peoples %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{peoples.name}}</td>
+          <td>{{peoples.age}}</td>
+          <td>
+            {% if peoples.age >= 18 %}
+            👍
+            {% else %}
+            👎
+            {% endif %}
+        </td>
+        </tr>
+        
+
+        {% endfor %}
+      </table>
+
+    <script>
+        console.log("This is script")
+    </script>
 </body>
 </html>
